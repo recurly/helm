@@ -6,10 +6,15 @@ This is a fork of the https://github.com/helm/helm project. We're forking to pat
  
 # How to build for Recurly <a name="how-to-build-for-recurly"/></a>
 
-1. Ensure dependencies are handled
-   ```bash
-   $ make bootstrap
-   ```
+**Build locally**:
+```bash
+$ make bootstrap build
+```
+
+**Build the docker image**:
+```bash
+$ docker build .
+```
 
 # Modifications to the Repo <a name="modifications-to-the-repo"/></a>
 Modifications to the original repo from most recent to oldest change:
