@@ -904,42 +904,65 @@ func getSelectorFromObject(obj runtime.Object) (map[string]string, bool) {
 	switch typed := obj.(type) {
 
 	case *v1.ReplicationController:
-		return typed.Spec.Selector, true
-
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector, true
+		}
 	case *extv1beta1.ReplicaSet:
-		return typed.Spec.Selector.MatchLabels, true
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1.ReplicaSet:
-		return typed.Spec.Selector.MatchLabels, true
-
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *extv1beta1.Deployment:
-		return typed.Spec.Selector.MatchLabels, true
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1beta1.Deployment:
-		return typed.Spec.Selector.MatchLabels, true
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1beta2.Deployment:
-		return typed.Spec.Selector.MatchLabels, true
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1.Deployment:
-		return typed.Spec.Selector.MatchLabels, true
-
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *extv1beta1.DaemonSet:
-		return typed.Spec.Selector.MatchLabels, true
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1beta2.DaemonSet:
-		return typed.Spec.Selector.MatchLabels, true
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1.DaemonSet:
-		return typed.Spec.Selector.MatchLabels, true
-
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *batch.Job:
-		return typed.Spec.Selector.MatchLabels, true
-
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1beta1.StatefulSet:
-		return typed.Spec.Selector.MatchLabels, true
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1beta2.StatefulSet:
-		return typed.Spec.Selector.MatchLabels, true
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	case *appsv1.StatefulSet:
-		return typed.Spec.Selector.MatchLabels, true
-
+		if typed != nil && typed.Spec.Selector != nil {
+			return typed.Spec.Selector.MatchLabels, true
+		}
 	default:
 		return nil, false
 	}
+	return nil, false
 }
 
 func (c *Client) watchUntilReady(timeout time.Duration, info *resource.Info) error {
