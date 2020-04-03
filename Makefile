@@ -1,10 +1,11 @@
 SHELL=/usr/bin/env bash
+VERSION  := ${strip ${shell cat VERSION}}
 
 LDFLAGS   := -w -s
 BINDIR    := $(CURDIR)/bin
 GIT_COMMIT = $(shell git rev-parse HEAD)
 
-LDFLAGS += -X k8s.io/helm/pkg/version.Version=v2.16.5.1
+LDFLAGS += -X k8s.io/helm/pkg/version.Version=${VERSION}
 LDFLAGS += -X k8s.io/helm/pkg/version.GitCommit=${GIT_COMMIT}
 
 .PHONY: build
